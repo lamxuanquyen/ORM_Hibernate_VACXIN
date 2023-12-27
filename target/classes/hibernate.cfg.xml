@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- JDBC Database connection settings -->
+		<property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="connection.url">jdbc:sqlserver://localhost:1433;databaseName=ORMVACCIN;encrypt=true;trustServerCertificate=true;</property>
+		<property name="connection.username">sa</property>
+		<property name="connection.password">01012015</property>
+		<!-- JDBC connection pool settings ... using built-in test pool -->
+		<property name="connection.pool_size">5</property>
+		<!-- Select our SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+		<!-- Echo the SQL to stdout -->
+		<property name="show_sql">true</property>
+		<!-- Set the current session context -->
+		<property name="current_session_context_class">thread</property>
+		<!-- Drop and re-create the database schema on startup -->
+		<property name="hbm2ddl.auto">create</property>
+		<!-- dbcp connection pool configuration -->
+		<property name="hibernate.dbcp.initialSize">5</property>
+		<property name="hibernate.dbcp.maxTotal">20</property>
+		<property name="hibernate.dbcp.maxIdle">10</property>
+		<property name="hibernate.dbcp.minIdle">5</property>
+		<property name="hibernate.dbcp.maxWaitMillis">-1</property>
+		<!-- load nhieu doi tuong, su dung join cac ban voi nhau -->
+		<property name="hibernate.enable_lazy_load_no_trans">true</property>
+		
+		
+		<mapping class="fa.trainning.entities.Brand" />
+		<mapping class="fa.trainning.entities.Customer" />
+		<mapping class="fa.trainning.entities.Employee" />
+		<mapping class="fa.trainning.entities.History" />
+		<mapping class="fa.trainning.entities.Vaccin" />
+		
+	</session-factory>
+</hibernate-configuration>
